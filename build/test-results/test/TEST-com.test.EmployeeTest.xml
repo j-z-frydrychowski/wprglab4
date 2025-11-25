@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.test.EmployeeTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2025-11-18T14:37:07.249Z" hostname="laptop-Jan.local" time="0.029">
+  <properties/>
+  <testcase name="testSetEmailIsNull()" classname="com.test.EmployeeTest" time="0.003"/>
+  <testcase name="testGetEmail()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testGetSurname()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testToString()" classname="com.test.EmployeeTest" time="0.004"/>
+  <testcase name="testHashCodeSameEmail()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testEqualsDifferentEmail()" classname="com.test.EmployeeTest" time="0.003"/>
+  <testcase name="testGetName()" classname="com.test.EmployeeTest" time="0.001"/>
+  <testcase name="testEqualsNull()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testSetJobTitle()" classname="com.test.EmployeeTest" time="0.001"/>
+  <testcase name="testGetJobTitle()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testSetCompanyName()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testSetSurname()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testEqualsSameObject()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testSetSalaryThrowsIllegalArgumentException()" classname="com.test.EmployeeTest" time="0.001"/>
+  <testcase name="testEqualsSameEmail()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testSetSalary()" classname="com.test.EmployeeTest" time="0.001"/>
+  <testcase name="testGetSalary()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testSetName()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testGetCompanyName()" classname="com.test.EmployeeTest" time="0.001"/>
+  <testcase name="testConstructor()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testConstructorSetBaseSalary()" classname="com.test.EmployeeTest" time="0.0"/>
+  <testcase name="testSetEmail()" classname="com.test.EmployeeTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

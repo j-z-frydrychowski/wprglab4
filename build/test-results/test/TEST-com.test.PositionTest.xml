@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.test.PositionTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2025-11-18T14:37:07.322Z" hostname="laptop-Jan.local" time="0.01">
+  <properties/>
+  <testcase name="testPositionPrezesName()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testGetPosition_invalidPosition_throwsIllegalArgumentException()" classname="com.test.PositionTest" time="0.001"/>
+  <testcase name="testGetPositionNameCamelCase()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testPositionStazystaName()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testPositionManagerSalary()" classname="com.test.PositionTest" time="0.001"/>
+  <testcase name="testPositionManagerName()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testPositionPrezesSalary()" classname="com.test.PositionTest" time="0.001"/>
+  <testcase name="testPositionWiceprezesSalary()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testGetPositionLowerCase()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testGetPositionWithNull()" classname="com.test.PositionTest" time="0.001"/>
+  <testcase name="testPositionStazystaSalary()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testPositionProgramistaSalary()" classname="com.test.PositionTest" time="0.001"/>
+  <testcase name="testPositionPrgramistaName()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testGetPositionUpperCase()" classname="com.test.PositionTest" time="0.0"/>
+  <testcase name="testPositionWiceprezesName()" classname="com.test.PositionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

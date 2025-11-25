@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.test.ApiServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-11-18T14:37:06.143Z" hostname="laptop-Jan.local" time="1.031">
+  <properties/>
+  <testcase name="testFetchEmployeesApiEmployeeWithCompany()" classname="com.test.ApiServiceTest" time="0.624"/>
+  <testcase name="testDefaultPositionProgramista()" classname="com.test.ApiServiceTest" time="0.051"/>
+  <testcase name="testFetchEmployeesApiNonEmptyList()" classname="com.test.ApiServiceTest" time="0.045"/>
+  <testcase name="testFetchEmployeesApiEmployeeWithEmail()" classname="com.test.ApiServiceTest" time="0.045"/>
+  <testcase name="testMapApiUserEmployeeHasFirstName()" classname="com.test.ApiServiceTest" time="0.043"/>
+  <testcase name="testFetchEmployeesApiEmployeeWithName()" classname="com.test.ApiServiceTest" time="0.043"/>
+  <testcase name="testDefaultPositionSalary()" classname="com.test.ApiServiceTest" time="0.044"/>
+  <testcase name="testFetchEmployeesApiEmployeeWithPosition()" classname="com.test.ApiServiceTest" time="0.047"/>
+  <testcase name="testMapApiUserEmployeeHasLastName()" classname="com.test.ApiServiceTest" time="0.042"/>
+  <testcase name="testFetchEmployeesApiNotNull()" classname="com.test.ApiServiceTest" time="0.043"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

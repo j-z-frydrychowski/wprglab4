@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ImportService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab3tdd</a> &gt; <a href="index.source.html" class="el_package">com.test.service</a> &gt; <span class="el_source">ImportService.java</span></div><h1>ImportService.java</h1><pre class="source lang-java linenums">package com.test.service;
+
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+import com.test.exception.InvalidDataException;
+import com.test.model.Employee;
+import com.test.model.ImportSummary;
+import com.test.model.Position;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.List;
+
+
+public class ImportService {
+    private final EmployeeService employeeService;
+<span class="fc" id="L18">    int lineCount = 0;</span>
+<span class="fc" id="L19">    public ImportService(EmployeeService employeeService) {</span>
+<span class="fc" id="L20">        this.employeeService = employeeService;</span>
+<span class="fc" id="L21">    }</span>
+
+    public ImportSummary importFromCsv(String filePath) throws IOException, CsvException {
+<span class="fc" id="L24">        ImportSummary importSummary = new ImportSummary();</span>
+<span class="fc" id="L25">        Path path = Path.of(filePath);</span>
+
+<span class="nc" id="L27">        try (CSVReader reader = new CSVReader(new FileReader(filePath))) {</span>
+<span class="nc" id="L28">            List&lt;String[]&gt; allRows = reader.readAll();</span>
+
+            try {
+<span class="nc bnc" id="L31" title="All 2 branches missed.">                for (int i = 1; i &lt; allRows.size(); i++) {</span>
+<span class="nc" id="L32">                    String[] row = allRows.get(i);</span>
+<span class="nc" id="L33">                    String firstName = row[0];</span>
+<span class="nc" id="L34">                    String lastName = row[1];</span>
+<span class="nc" id="L35">                    String email = row[2];</span>
+<span class="nc" id="L36">                    String companyName = row[3];</span>
+<span class="nc" id="L37">                    String positionStr = row[4];</span>
+<span class="nc" id="L38">                    Double salary = Double.parseDouble(row[5]);</span>
+
+                    Position p;
+                    try {
+<span class="nc" id="L42">                        p = Position.getPosition(positionStr);</span>
+<span class="nc" id="L43">                    } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L44">                        throw new InvalidDataException(&quot;Invalid position: &quot; + positionStr, e);</span>
+<span class="nc" id="L45">                    }</span>
+
+                    try {
+<span class="nc bnc" id="L48" title="All 2 branches missed.">                        if (salary &lt;= 0) {</span>
+<span class="nc" id="L49">                            throw new InvalidDataException(&quot;Salary cannot be less than 0: &quot; + salary);</span>
+                        }
+<span class="nc" id="L51">                    } catch (NumberFormatException e) {</span>
+<span class="nc" id="L52">                        throw new InvalidDataException(&quot;Invalid salary format: &quot; + salary, e);</span>
+<span class="nc" id="L53">                    }</span>
+<span class="nc" id="L54">                    Employee employee = new Employee(firstName, lastName, email, companyName, p);</span>
+<span class="nc" id="L55">                    employee.setSalary(salary);</span>
+
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                    if (employeeService.SearchEmployee(email) == null) {</span>
+<span class="nc" id="L58">                        employeeService.addEmployee(employee);</span>
+<span class="nc" id="L59">                        importSummary.incrementImportedCount();</span>
+                    } else {
+<span class="nc" id="L61">                        throw new InvalidDataException(&quot;Email already taken: &quot; + email);</span>
+                    }
+                }
+<span class="nc" id="L64">            } catch (InvalidDataException | IllegalArgumentException e) {</span>
+<span class="nc" id="L65">                importSummary.addError(lineCount, e.getMessage());</span>
+<span class="nc" id="L66">            }</span>
+<span class="fc" id="L67">        } catch (IOException e) {</span>
+<span class="fc" id="L68">            importSummary.addError(0, &quot;Error: cannot read CSV file&quot; + e.getMessage());</span>
+<span class="nc" id="L69">        }</span>
+<span class="fc" id="L70">        return importSummary;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

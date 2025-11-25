@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.test.CompanyStatisticsTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2025-11-18T14:37:07.179Z" hostname="laptop-Jan.local" time="0.029">
+  <properties/>
+  <testcase name="testConstructorLargeAverageSalary()" classname="com.test.CompanyStatisticsTest" time="0.0"/>
+  <testcase name="testConstructorHighestPaidEmployeeZero()" classname="com.test.CompanyStatisticsTest" time="0.0"/>
+  <testcase name="testConstructorNotNull()" classname="com.test.CompanyStatisticsTest" time="0.0"/>
+  <testcase name="testGetHighestPaidEmployee()" classname="com.test.CompanyStatisticsTest" time="0.001"/>
+  <testcase name="testToStringContainsEmployeeName()" classname="com.test.CompanyStatisticsTest" time="0.004"/>
+  <testcase name="testConstructorHighestPaidEmployeeLarge()" classname="com.test.CompanyStatisticsTest" time="0.0"/>
+  <testcase name="testGetEmployeeCount()" classname="com.test.CompanyStatisticsTest" time="0.0"/>
+  <testcase name="testToStringContainsEmployeeCount()" classname="com.test.CompanyStatisticsTest" time="0.001"/>
+  <testcase name="testToStringFormatsAverageSalary2Decimals()" classname="com.test.CompanyStatisticsTest" time="0.009"/>
+  <testcase name="testConstructorLargeEmployeeCount()" classname="com.test.CompanyStatisticsTest" time="0.001"/>
+  <testcase name="testConstructorZeroEmployeeCount()" classname="com.test.CompanyStatisticsTest" time="0.001"/>
+  <testcase name="testToStringNotNull()" classname="com.test.CompanyStatisticsTest" time="0.001"/>
+  <testcase name="testGetAverageSalary()" classname="com.test.CompanyStatisticsTest" time="0.0"/>
+  <testcase name="testConstructorAvgSalaryZero()" classname="com.test.CompanyStatisticsTest" time="0.0"/>
+  <testcase name="testToStringContainsAverageSalary()" classname="com.test.CompanyStatisticsTest" time="0.001"/>
+  <system-out><![CDATA[
+  - Liczba pracowników: 3
+  - Średnie wynagrodzenie: 10000,33
+  - Najlepiej opłacany pracownik: Alice
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

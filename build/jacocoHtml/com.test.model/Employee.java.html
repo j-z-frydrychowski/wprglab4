@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Employee.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab3tdd</a> &gt; <a href="index.source.html" class="el_package">com.test.model</a> &gt; <span class="el_source">Employee.java</span></div><h1>Employee.java</h1><pre class="source lang-java linenums">package com.test.model;
+
+public class Employee {
+    private String name;
+    private String surname;
+    private String email;
+    private String companyName;
+    private Position position;
+    private double salary;
+
+<span class="fc" id="L11">    public Employee(){</span>
+<span class="fc" id="L12">        this.companyName = &quot;TechCorp&quot;;</span>
+<span class="fc" id="L13">    }</span>
+
+<span class="fc" id="L15">    public Employee(String name, String surname, String email, String companyName, Position position) {</span>
+<span class="fc" id="L16">        this.name = validate(name);</span>
+<span class="fc" id="L17">        this.surname = validate(surname);</span>
+<span class="fc" id="L18">        this.email = validate(email);</span>
+<span class="fc" id="L19">        this.companyName = validate(companyName);</span>
+<span class="fc" id="L20">        this.position = validate(position);</span>
+<span class="fc" id="L21">        this.salary = position.getSalary();</span>
+<span class="fc" id="L22">    }</span>
+
+    public String getName() {
+<span class="fc" id="L25">        return name;</span>
+    }
+    public String getSurname() {
+<span class="fc" id="L28">        return surname;</span>
+    }
+    public String getEmail() {
+<span class="fc" id="L31">        return email;</span>
+    }
+    public String getCompanyName() {
+<span class="fc" id="L34">        return companyName;</span>
+    }
+    public Position getJobTitle() {
+<span class="fc" id="L37">        return position;</span>
+    }
+    public double getSalary() {
+<span class="fc" id="L40">        return salary;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L44">        this.name = validate(name);</span>
+<span class="fc" id="L45">    }</span>
+    public void setSurname(String surname) {
+<span class="fc" id="L47">        this.surname = validate(surname);</span>
+<span class="fc" id="L48">    }</span>
+    public void setEmail(String email) {
+<span class="fc" id="L50">        this.email = validate(email);</span>
+<span class="fc" id="L51">    }</span>
+    public void setCompanyName(String companyName) {
+<span class="fc" id="L53">        this.companyName = validate(companyName);</span>
+<span class="fc" id="L54">    }</span>
+    public void setJobTitle(Position position) {
+<span class="fc" id="L56">        this.position = validate(position);</span>
+<span class="fc" id="L57">    }</span>
+    public void setSalary(double salary) {
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if(salary &lt;= 0){</span>
+<span class="fc" id="L60">            throw new IllegalArgumentException(&quot;Salary cannot be negative or zero&quot;);</span>
+        }
+<span class="fc" id="L62">        else this.salary = salary;</span>
+<span class="fc" id="L63">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if(this == o) return true;</span>
+<span class="pc bpc" id="L68" title="2 of 4 branches missed.">        if(o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L69">        Employee e = (Employee) o;</span>
+<span class="fc" id="L70">        return email.equals(e.email);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L75">        return email.hashCode();</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L80">        return &quot;Imie: &quot; + name +</span>
+                &quot;\nSurname: &quot; + surname +
+                &quot;\nEmail: &quot; + email +
+                &quot;\nCompany: &quot; + companyName +
+<span class="fc" id="L84">                &quot;\nJob title: &quot; + position.getName() +</span>
+                &quot;\nSalary: &quot; + salary + &quot;\n&quot;;
+    }
+
+    private static &lt;T&gt; T validate(T o){
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        if(o == null) {</span>
+<span class="fc" id="L90">            throw new IllegalArgumentException(&quot;Value cannot be null&quot;);</span>
+        }
+<span class="fc" id="L92">        else return o;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
