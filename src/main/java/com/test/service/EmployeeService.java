@@ -45,6 +45,15 @@ public class EmployeeService {
         employees.add(employee);
     }
 
+    public void ShowEmployees(){
+        System.out.println("Employees: ");
+        for (Employee employee : employees) {
+            System.out.println("---------------------");
+            System.out.println(employee.toString());
+            System.out.println("---------------------");
+        }
+    }
+
     public Employee SearchEmployee(String email){
         for (Employee employee : employees) {
             if (employee.getEmail().equals(email)) {

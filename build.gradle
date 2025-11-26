@@ -5,11 +5,11 @@ plugins {
 }
 
 application {
-    mainClass.set("com.test.Lab3Application")
+    mainClass.set("com.test.Lab3TddApplication")
 }
 group = 'com.test'
 version = '0.0.1-SNAPSHOT'
-description = 'wprglab4'
+description = 'lab3tdd'
 
 java {
     toolchain {

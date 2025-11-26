@@ -91,5 +91,4 @@ public class Employee {
         }
         else return o;
     }
-    // ulepszyc walidacje danych!!!!
 }
