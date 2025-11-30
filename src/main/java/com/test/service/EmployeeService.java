@@ -1,5 +1,6 @@
 package com.test.service;
 
+import com.test.exception.InvalidDataException;
 import com.test.model.CompanyStatistics;
 import com.test.model.Employee;
 import com.test.model.Employee;
@@ -11,35 +12,6 @@ import java.util.stream.Collectors;
 
 public class EmployeeService {
     private final ArrayList<Employee> employees = new ArrayList<>();
-
-//    public void AddEmployee() throws AttributeInUseException {
-//        Employee employee = new Employee();
-//        Scanner scanner = new Scanner(System.in);
-//        String emailInput;
-//
-//        System.out.println("Enter the email: ");
-//        emailInput = scanner.nextLine();
-//        if (SearchEmployee(emailInput) != null){
-//            throw new AttributeInUseException("This email belongs to other employee");
-//        }
-//        else {
-//            employee.setEmail(emailInput);
-//
-//            System.out.println("Enter the name: ");
-//            employee.setName(scanner.nextLine());
-//
-//            System.out.println("Enter the surname: ");
-//            employee.setSurname(scanner.nextLine());
-//
-//            System.out.println("Enter the position (PREZES, WICEPREZES, MANAGER, PROGRAMISTA, STAZYSTA): ");
-//            Position position = Position.getPosition(scanner.nextLine());
-//            employee.setJobTitle(position);
-//
-//            employee.setSalary(position.getSalary());
-//        }
-//        employees.add(employee);
-//        System.out.println("Employee added successfully!\n");
-//    }
 
     public void addEmployee(Employee employee) {
         employees.add(employee);
@@ -121,5 +93,16 @@ public class EmployeeService {
     }
     public ArrayList<Employee> getEmployees() {
         return employees;
+    }
+
+    public void promoteEmployee(Employee employee, Position newPosition) {
+        if (newPosition.getHierarchyLevel() <= employee.getJobTitle().getHierarchyLevel()) {
+            throw new InvalidDataException("Invalid promotion path: Cannot promote from "
+                    + employee.getJobTitle() + " to " + newPosition);
+        }
+
+        employee.setJobTitle(newPosition);
+        // Automatyczne dostosowanie wynagrodzenia do bazy nowego stanowiska
+        employee.setSalary(newPosition.getSalary());
     }
 }
