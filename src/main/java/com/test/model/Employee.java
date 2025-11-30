@@ -2,6 +2,9 @@ package com.test.model;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
 
 public class Employee {
     private String name;
@@ -11,6 +14,7 @@ public class Employee {
     private Position position;
     private double salary;
     private LocalDate hireDate;
+    private List<Evaluation> evaluations = new ArrayList<>();
 
     public Employee(){
         this.companyName = "TechCorp";
@@ -39,6 +43,20 @@ public class Employee {
         if (this.hireDate.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("Hire date cannot be in the future");
         }
+    }
+
+    public List<Evaluation> getEvaluations() {
+        return Collections.unmodifiableList(evaluations);
+    }
+
+    //funkcje pomocnicze, które będą zaimplementowane w późniejszej fazie TDD
+    public void addEvaluation(int year, int score) {
+        // Na razie puste lub rzucające wyjątek
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
+    public double getAverageRating() {
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public String getName() {
