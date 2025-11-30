@@ -49,14 +49,18 @@ public class Employee {
         return Collections.unmodifiableList(evaluations);
     }
 
-    //funkcje pomocnicze, które będą zaimplementowane w późniejszej fazie TDD
     public void addEvaluation(int year, int score) {
-        // Na razie puste lub rzucające wyjątek
-        throw new UnsupportedOperationException("Not implemented yet");
+        this.evaluations.add(new Evaluation(year, score));
     }
 
     public double getAverageRating() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (evaluations.isEmpty()) {
+            return 0.0;
+        }
+        return evaluations.stream()
+                .mapToInt(Evaluation::score)
+                .average()
+                .orElse(0.0);
     }
 
     public String getName() {
