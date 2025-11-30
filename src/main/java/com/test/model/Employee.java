@@ -1,5 +1,8 @@
 package com.test.model;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Employee {
     private String name;
     private String surname;
@@ -7,6 +10,7 @@ public class Employee {
     private String companyName;
     private Position position;
     private double salary;
+    private LocalDate hireDate;
 
     public Employee(){
         this.companyName = "TechCorp";
@@ -19,6 +23,22 @@ public class Employee {
         this.companyName = validate(companyName);
         this.position = validate(position);
         this.salary = position.getSalary();
+        this.hireDate = LocalDate.now();
+    }
+
+    public Employee(String name, String surname, String email, String companyName, Position position, LocalDate hireDate) {
+        this.name = validate(name);
+        this.surname = validate(surname);
+        this.email = validate(email);
+        this.companyName = validate(companyName);
+        this.position = validate(position);
+        this.salary = position.getSalary();
+        this.hireDate = validate(hireDate);
+
+        // Walidacja daty z przyszłości
+        if (this.hireDate.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("Hire date cannot be in the future");
+        }
     }
 
     public String getName() {
@@ -38,6 +58,15 @@ public class Employee {
     }
     public double getSalary() {
         return salary;
+    }
+    public LocalDate getHireDate() {
+        return hireDate;
+    }
+    public int getSeniorityInYears(LocalDate referenceDate) {
+        if (referenceDate.isBefore(hireDate)) {
+            throw new IllegalArgumentException("Reference date cannot be before hire date");
+        }
+        return Period.between(hireDate, referenceDate).getYears();
     }
 
     public void setName(String name) {
